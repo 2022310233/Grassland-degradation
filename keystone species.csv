@@ -1,0 +1,88 @@
+,resT0,resT1,resT2,resT3,bareT0,bareT1,bareT2,bareT3,trancom,resT0,Genus0,resT1,Genus1,resT2,Genus2,resT3,Genus3,bareT0,Genus4,bareT1,Genus5,bareT2,Genus6,bareT3,Genus7,,,,OTUID,Genus,OTUID,Genus,OTUID,Genus,OTUID,Genus
+1,Otu3793,Otu136,Otu226,Otu388,Otu591,Otu562,Otu15,Otu544,trancom,Otu3793,Unrecognized,Otu1432,Unrecognized,Otu461,Unrecognized,Otu1437,Unrecognized,Otu1723,Unrecognized,Otu2145,Unrecognized,Otu108,Gaiella,Otu1755,Bauldia,,,,Otu1723,Unrecognized,Otu2145,Unrecognized,Otu108,Gaiella,Otu1755,Bauldia
+2,Otu598,Otu4273,Otu221,Otu81,Otu178,Otu182,Otu466,Otu280,trancom,Otu808,Chthoniobacter,Otu5617,Unrecognized,Otu5999,Nocardioides,Otu2390,Unrecognized,Otu4610,Gemmatimonas,Otu6378,Unrecognized,Otu15,Unrecognized,Otu544,Unrecognized,,,,Otu4610,Gemmatimonas,Otu6378,Unrecognized,Otu15,Unrecognized,Otu544,Unrecognized
+3,Otu386,Otu118,Otu724,Otu3548,Otu1256,Otu6378,Otu246,Otu90,trancom,Otu966,Unrecognized,Otu750,Unrecognized,Otu825,Unrecognized,Otu607,Unrecognized,Otu4710,Unrecognized,Otu956,Unrecognized,Otu25,Candidatus Nitrososphaera,Otu974,Parviterribacter,,,,Otu4710,Unrecognized,Otu956,Unrecognized,Otu25,Candidatus Nitrososphaera,Otu974,Parviterribacter
+4,Otu3119,Otu110,Otu2032,Otu607,Otu285,Otu2550,Otu1736,Otu1175,trancom,Otu3447,Ambiguous_taxa,Otu1325,Unrecognized,Otu2550,Unrecognized,Otu3422,Unrecognized,Otu3422,Unrecognized,Otu6919,Sphingomonas,Otu1,Unrecognized,Otu2330,Acidibacter,,,,Otu3422,Unrecognized,Otu6919,Sphingomonas,Otu1,Unrecognized,Otu2330,Acidibacter
+5,Otu1269,Otu2889,Otu461,Otu6358,Otu84,Otu778,Otu1205,Otu2317,trancom,Otu1012,Rhizocola,Otu1594,Unrecognized,Otu3518,Unrecognized,Otu696,Unrecognized,Otu6448,Unrecognized,Otu5086,Unrecognized,Otu246,Unrecognized,Otu280,Unrecognized,,,,Otu6448,Unrecognized,Otu5086,Unrecognized,Otu246,Unrecognized,Otu280,Unrecognized
+6,Otu929,Otu1801,Otu2538,Otu867,Otu1723,Otu3132,Otu504,Otu6693,trancom,Otu2304,Unrecognized,Otu1180,Luteolibacter,Otu2087,Unrecognized,Otu1166,Haliangium,Otu606,Unrecognized,Otu1744,Unrecognized,Otu610,Unrecognized,Otu1872,Unrecognized,,,,Otu606,Unrecognized,Otu1744,Unrecognized,Otu610,Unrecognized,Otu1872,Unrecognized
+7,Otu2600,Otu350,Otu6984,Otu1718,Otu1056,Otu2477,Otu323,Otu2496,trancom,Otu668,Unrecognized,Otu1924,Unrecognized,Otu2080,Haliangium,Otu3095,Unrecognized,Otu3095,Unrecognized,Otu3151,Segetibacter,Otu1826,Unrecognized,Otu2045,Unrecognized,,,,Otu3095,Unrecognized,Otu3151,Segetibacter,Otu1826,Unrecognized,Otu2045,Unrecognized
+8,Otu2540,Otu3391,Otu755,Otu587,Otu1189,,Otu295,Otu3162,trancom,Otu2790,Unrecognized,Otu1566,Unrecognized,Otu3011,Unrecognized,Otu1908,Candidatus Alysiosphaera,Otu5086,Unrecognized,Otu1633,Unrecognized,Otu2273,Unrecognized,Otu90,MND1,,,,Otu5086,Unrecognized,Otu1633,Unrecognized,Otu2273,Unrecognized,Otu90,MND1
+9,Otu4578,Otu1935,Otu2574,Otu2273,Otu2293,,Otu557,Otu860,trancom,Otu1692,Unrecognized,Otu1725,Unrecognized,Otu3162,Unrecognized,Otu3502,Unrecognized,Otu1924,Unrecognized,Otu1449,Unrecognized,Otu277,Unrecognized,Otu747,Unrecognized,,,,Otu1924,Unrecognized,Otu1449,Unrecognized,Otu277,Unrecognized,Otu747,Unrecognized
+10,Otu1933,Otu5617,,Otu1591,Otu2199,,,,trancom,Otu1026,Aquicella,Otu4273,Candidatus Udaeobacter,Otu1859,Unrecognized,Otu2311,Haliangium,Otu4375,Jatrophihabitans,Otu2656,Unrecognized,Otu3832,Unrecognized,Otu7591,Unrecognized,,,,Otu4375,Jatrophihabitans,Otu2656,Unrecognized,Otu3832,Unrecognized,Otu7591,Unrecognized
+11,Otu4140,Otu4893,,Otu1869,Otu4012,,,,trancom,Otu2421,Unrecognized,Otu2538,Unrecognized,Otu1795,Flavisolibacter,Otu828,Unrecognized,Otu3443,Unrecognized,Otu1415,Pajaroellobacter,Otu1118,Inquilinus,Otu3502,Unrecognized,,,,Otu3443,Unrecognized,Otu1415,Pajaroellobacter,Otu1118,Inquilinus,Otu3502,Unrecognized
+12,Otu1187,Otu4027,,Otu1433,,,,,trancom,Otu1777,Unrecognized,Otu1660,Unrecognized,Otu1592,Unrecognized,Otu1121,Unrecognized,Otu912,Skermanella,Otu2550,Unrecognized,Otu1268,Unrecognized,Otu2264,Unrecognized,,,,Otu912,Skermanella,Otu2550,Unrecognized,Otu1268,Unrecognized,Otu2264,Unrecognized
+13,Otu1004,Otu6571,,,,,,,trancom,Otu1277,Unrecognized,Otu4558,OM27 clade,Otu1763,Unrecognized,Otu3548,UTCFX1,Otu1256,Unrecognized,Otu817,Unrecognized,Otu3912,Unrecognized,Otu2922,Unrecognized,,,,Otu1256,Unrecognized,Otu817,Unrecognized,Otu3912,Unrecognized,Otu2922,Unrecognized
+14,Otu5068,Otu2666,,,,,,,trancom,Otu4578,Unrecognized,Otu1335,Unrecognized,Otu6988,Chitinophaga,Otu5449,Craurococcus,Otu5678,Unrecognized,Otu1347,Unrecognized,Otu2206,Unrecognized,Otu497,Unrecognized,,,,Otu5678,Unrecognized,Otu1347,Unrecognized,Otu2206,Unrecognized,Otu497,Unrecognized
+15,Otu3232,,,,,,,,trancom,Otu773,Unrecognized,Otu6736,MND1,Otu1125,Unrecognized,Otu1744,Unrecognized,Otu746,Unrecognized,Otu6185,AKYG587,Otu1011,Unrecognized,Otu889,Segetibacter,,,,Otu746,Unrecognized,Otu6185,AKYG587,Otu1011,Unrecognized,Otu889,Segetibacter
+16,,,,,,,,,trancom,Otu1981,Unrecognized,Otu1620,Unrecognized,Otu1983,Unrecognized,Otu3119,Actinoplanes,Otu2475,Unrecognized,Otu3119,Actinoplanes,Otu685,Unrecognized,Otu968,Chthoniobacter,,,,Otu2475,Unrecognized,Otu3119,Actinoplanes,Otu685,Unrecognized,Otu968,Chthoniobacter
+17,,,,,,,,,trancom,Otu2087,Unrecognized,Otu1173,Unrecognized,Otu3422,Unrecognized,Otu3819,Unrecognized,Otu1615,Unrecognized,Otu2979,Haliangium,Otu767,Unrecognized,Otu1288,Ferruginibacter,,,,Otu1615,Unrecognized,Otu2979,Haliangium,Otu767,Unrecognized,Otu1288,Ferruginibacter
+18,,,,,,,,,trancom,Otu2339,Unrecognized,Otu118,Unrecognized,Otu3560,Unrecognized,Otu7063,Nakamurella,Otu7063,Nakamurella,Otu2691,Unrecognized,Otu5,Unrecognized,Otu546,Hymenobacter,,,,Otu7063,Nakamurella,Otu2691,Unrecognized,Otu5,Unrecognized,Otu546,Hymenobacter
+19,,,,,,,,,trancom,Otu1356,Unrecognized,Otu2529,Unrecognized,Otu1045,Unrecognized,Otu1476,Unrecognized,Otu84,Unrecognized,Otu1629,Unrecognized,Otu550,Unrecognized,Otu1177,Gaiella,,,,Otu84,Unrecognized,Otu1629,Unrecognized,Otu550,Unrecognized,Otu1177,Gaiella
+20,,,,,,,,,trancom,Otu2120,Unrecognized,Otu1577,Unrecognized,Otu4415,Unrecognized,Otu6544,Unrecognized,Otu4879,Paenibacillus,Otu2477,Aquicella,Otu116,Unrecognized,Otu1300,Unrecognized,,,,Otu4879,Paenibacillus,Otu2477,Aquicella,Otu116,Unrecognized,Otu1300,Unrecognized
+21,,,,,,,,,trancom,Otu1658,Nocardioides,Otu4299,Unrecognized,Otu5226,OM27 clade,Otu587,RB41,Otu4216,Gemmatimonas,Otu547,Unrecognized,Otu2908,Unrecognized,Otu2317,Unrecognized,,,,Otu4216,Gemmatimonas,Otu547,Unrecognized,Otu2908,Unrecognized,Otu2317,Unrecognized
+22,,,,,,,,,trancom,Otu883,Unrecognized,Otu1004,Unrecognized,Otu6984,Unrecognized,Otu2273,Unrecognized,Otu2147,Unrecognized,Otu1632,Unrecognized,Otu658,Unrecognized,Otu1121,Unrecognized,,,,Otu2147,Unrecognized,Otu1632,Unrecognized,Otu658,Unrecognized,Otu1121,Unrecognized
+23,,,,,,,,,trancom,Otu1203,Unrecognized,Otu3679,Unrecognized,Otu1039,Unrecognized,Otu1016,Unrecognized,Otu1744,Unrecognized,Otu1667,Bryobacter,Otu1629,Unrecognized,Otu510,Chitinophaga,,,,Otu1744,Unrecognized,Otu1667,Bryobacter,Otu1629,Unrecognized,Otu510,Chitinophaga
+24,,,,,,,,,trancom,Otu2252,Unrecognized,Otu3225,Longispora,Otu2158,Unrecognized,Otu3827,Hymenobacter,Otu1018,Unrecognized,Otu3752,Unrecognized,Otu332,Pseudoduganella,Otu799,BIyi10,,,,Otu1018,Unrecognized,Otu3752,Unrecognized,Otu332,Pseudoduganella,Otu799,BIyi10
+25,,,,,,,,,trancom,Otu2348,Unrecognized,Otu3739,Unrecognized,Otu965,Domibacillus,Otu867,Unrecognized,Otu1810,Unrecognized,Otu1403,Acidibacter,Otu338,Unrecognized,Otu3524,Conexibacter,,,,Otu1810,Unrecognized,Otu1403,Acidibacter,Otu338,Unrecognized,Otu3524,Conexibacter
+26,,,,,,,,,trancom,Otu3675,Gemmatimonas,Otu1328,Unrecognized,Otu1121,Unrecognized,Otu599,Unrecognized,Otu2432,Unrecognized,Otu49,RB41,,,Otu2133,Gemmatirosa,,,,Otu2432,Unrecognized,Otu49,RB41,Otu6464,Gemmata,Otu2133,Gemmatirosa
+27,,,,,,,,,trancom,Otu4204,Unrecognized,Otu2120,Unrecognized,Otu1845,Terrimonas,Otu1539,Unrecognized,Otu4248,Unrecognized,Otu189,Acidibacter,,,Otu6693,Hyphomicrobium,,,,Otu4248,Unrecognized,Otu189,Acidibacter,Otu1161,Unrecognized,Otu6693,Hyphomicrobium
+28,,,,,,,,,trancom,Otu2540,Unrecognized,Otu2889,Unrecognized,Otu6920,Unrecognized,Otu1528,Arenimonas,Otu178,Acidibacter,Otu2248,Unrecognized,,,Otu941,Planctomycetales bacterium Ellin7224,,,,Otu178,Acidibacter,Otu2248,Unrecognized,Otu2831,Unrecognized,Otu941,Planctomycetales bacterium Ellin7224
+29,,,,,,,,,trancom,Otu2242,Rubrobacter,Otu3333,Unrecognized,Otu112,Candidatus Udaeobacter,Otu2077,Unrecognized,Otu3834,Unrecognized,Otu671,Unrecognized,,,Otu4686,Pirellula,,,,Otu3834,Unrecognized,Otu671,Unrecognized,Otu5016,RB41,Otu4686,Pirellula
+30,,,,,,,,,trancom,Otu4622,Gemmatimonas,Otu2914,Gemmata,Otu1678,Gaiella,Otu2078,Unrecognized,Otu856,Unrecognized,Otu1034,Unrecognized,,,Otu3273,Unrecognized,,,,Otu856,Unrecognized,Otu1034,Unrecognized,Otu1171,Unrecognized,Otu3273,Unrecognized
+31,,,,,,,,,trancom,Otu3524,Conexibacter,Otu1591,Unrecognized,Otu2532,RB41,Otu1256,Unrecognized,Otu1077,Unrecognized,Otu1071,Unrecognized,,,Otu477,Chthoniobacter,,,,Otu1077,Unrecognized,Otu1071,Unrecognized,Otu2141,Unrecognized,Otu477,Chthoniobacter
+32,,,,,,,,,trancom,Otu1481,Gemmatirosa,Otu2080,Haliangium,Otu3523,Unrecognized,Otu1422,Unrecognized,Otu1652,Unrecognized,Otu1132,Unrecognized,,,Otu860,Unrecognized,,,,Otu1652,Unrecognized,Otu1132,Unrecognized,Otu74,Unrecognized,Otu860,Unrecognized
+33,,,,,,,,,trancom,Otu3002,Gemmata,Otu2181,Unrecognized,Otu1543,Unrecognized,Otu6362,Unrecognized,Otu771,Bryobacter,Otu820,Unrecognized,,,Otu495,Candidatus Udaeobacter,,,,Otu771,Bryobacter,Otu820,Unrecognized,Otu3848,Unrecognized,Otu495,Candidatus Udaeobacter
+34,,,,,,,,,trancom,Otu1035,Gemmatirosa,Otu974,Parviterribacter,Otu1576,Unrecognized,Otu1398,Unrecognized,Otu6822,Unrecognized,Otu908,Unrecognized,,,Otu1159,Unrecognized,,,,Otu6822,Unrecognized,Otu908,Unrecognized,Otu5525,Unrecognized,Otu1159,Unrecognized
+35,,,,,,,,,trancom,Otu989,Unrecognized,Otu2214,Unrecognized,Otu3161,Unrecognized,Otu1147,Unrecognized,Otu1686,Phaselicystis,Otu1099,Unrecognized,,,Otu1740,Chthoniobacter,,,,Otu1686,Phaselicystis,Otu1099,Unrecognized,Otu210,Phaselicystis,Otu1740,Chthoniobacter
+36,,,,,,,,,trancom,Otu4351,Roseimicrobium,Otu429,Unrecognized,Otu179,Unrecognized,Otu1968,Unrecognized,Otu510,Chitinophaga,Otu1108,metagenome,,,Otu2617,RB41,,,,Otu510,Chitinophaga,Otu1108,metagenome,Otu966,Unrecognized,Otu2617,RB41
+37,,,,,,,,,trancom,Otu4157,Unrecognized,Otu350,Unrecognized,Otu322,Haliangium,Otu679,Unrecognized,Otu520,Unrecognized,Otu1950,Gemmatimonas,,,Otu1391,Unrecognized,,,,Otu520,Unrecognized,Otu1950,Gemmatimonas,Otu1183,Acinetobacter,Otu1391,Unrecognized
+38,,,,,,,,,trancom,Otu1554,Candidatus Solibacter,Otu4027,Unrecognized,Otu90,MND1,Otu854,Bryobacter,Otu1858,Gemmatimonas,,,,,Otu713,Unrecognized,,,,Otu1858,Gemmatimonas,Otu1975,Unrecognized,Otu120,Unrecognized,Otu713,Unrecognized
+39,,,,,,,,,trancom,Otu1315,Gemmata,Otu1571,Unrecognized,Otu1801,Unrecognized,Otu1870,Gemmatimonas,Otu1143,Unrecognized,,,,,Otu773,Unrecognized,,,,Otu1143,Unrecognized,Otu6044,Unrecognized,Otu2629,Unrecognized,Otu773,Unrecognized
+40,,,,,,,,,trancom,Otu1968,Unrecognized,Otu3391,Segetibacter,Otu6657,Unrecognized,Otu744,Unrecognized,Otu34,Unrecognized,,,,,Otu1047,Aquicella,,,,Otu34,Unrecognized,Otu1590,Unrecognized,Otu3300,Unrecognized,Otu1047,Aquicella
+41,,,,,,,,,trancom,Otu2600,Unrecognized,Otu3460,Unrecognized,Otu555,Unrecognized,Otu1189,Unrecognized,Otu722,Unrecognized,,,,,Otu1069,Unrecognized,,,,Otu722,Unrecognized,Otu1784,Aquicella,Otu128,Unrecognized,Otu1069,Unrecognized
+42,,,,,,,,,trancom,Otu5554,Haliangium,Otu1310,Unrecognized,Otu609,Unrecognized,Otu1306,Schlesneria,Otu902,Unrecognized,,,,,Otu3127,Unrecognized,,,,Otu902,Unrecognized,Otu4012,Chthoniobacter,Otu394,Unrecognized,Otu3127,Unrecognized
+43,,,,,,,,,trancom,Otu4251,Unrecognized,Otu1065,Unrecognized,Otu7022,Unrecognized,Otu1005,Unrecognized,Otu1903,Unrecognized,,,,,Otu912,Skermanella,,,,Otu1903,Unrecognized,Otu157,Terrimonas,Otu617,Pir4 lineage,Otu912,Skermanella
+44,,,,,,,,,trancom,Otu1716,Unrecognized,Otu173,Stenotrophobacter,Otu1745,Unrecognized,Otu6826,Unrecognized,Otu3819,Unrecognized,,,,,Otu2611,Gemmatimonas,,,,Otu3819,Unrecognized,Otu56,Unrecognized,Otu962,Unrecognized,Otu2611,Gemmatimonas
+45,,,,,,,,,trancom,Otu2070,Unrecognized,Otu1935,Unrecognized,Otu253,Unrecognized,Otu1410,Unrecognized,Otu4426,Bdellovibrio,,,,,Otu2691,Unrecognized,,,,Otu4426,Bdellovibrio,Otu59,Sphingomonas,Otu1026,Aquicella,Otu2691,Unrecognized
+46,,,,,,,,,trancom,Otu1679,Unrecognized,Otu6298,Chthonomonas,Otu3119,Actinoplanes,Otu6358,Haliangium,Otu4821,Chloronema,,,,,Otu3692,Unrecognized,,,,Otu4821,Chloronema,Otu1205,Unrecognized,Otu5728,Unrecognized,Otu3692,Unrecognized
+47,,,,,,,,,trancom,Otu804,Paenibacillus,Otu13,Bradyrhizobium,,,Otu1647,Unrecognized,Otu1212,Galbitalea,,,,,Otu1217,Unrecognized,,,,Otu1212,Galbitalea,Otu263,Unrecognized,Otu60,Ellin6067,Otu1217,Unrecognized
+48,,,,,,,,,trancom,Otu2097,Unrecognized,Otu2139,Unrecognized,,,Otu768,Cohnella,Otu3848,Unrecognized,,,,,Otu2101,Unrecognized,,,,Otu2009,Unrecognized,Otu1002,Unrecognized,Otu2101,Unrecognized,,
+49,,,,,,,,,trancom,Otu6338,Unrecognized,Otu424,Opitutus,,,Otu1831,Unrecognized,Otu5525,Unrecognized,,,,,Otu1002,Unrecognized,,,,Otu3222,Unrecognized,Otu1699,Actinomadura,,,,
+50,,,,,,,,,trancom,Otu1354,Unrecognized,Otu1155,Unrecognized,,,Otu1869,Unrecognized,Otu210,Phaselicystis,,,,,Otu1699,Actinomadura,,,,,,,,,,,
+51,,,,,,,,,trancom,Otu1172,Unrecognized,Otu2323,Unrecognized,,,Otu2750,Unrecognized,Otu966,Unrecognized,,,,,Otu2009,Unrecognized,,,,,,,,,,,
+52,,,,,,,,,trancom,Otu3586,Unrecognized,Otu259,Unrecognized,,,Otu2598,Unrecognized,Otu1183,Acinetobacter,,,,,Otu3222,Unrecognized,,,,,,,,,,,
+53,,,,,,,,,trancom,Otu4953,Bdellovibrio,Otu1146,Unrecognized,,,Otu555,Unrecognized,Otu1975,Unrecognized,,,,,Otu617,Pir4 lineage,,,,,,,,,,,
+54,,,,,,,,,trancom,Otu930,Paenibacillus,Otu283,Unrecognized,,,Otu7139,Unrecognized,Otu6044,Unrecognized,,,,,Otu962,Unrecognized,,,,,,,,,,,
+55,,,,,,,,,trancom,Otu863,Chthonomonas,Otu676,Unrecognized,,,Otu920,Unrecognized,Otu1590,Unrecognized,,,,,Otu1026,Aquicella,,,,,,,,,,,
+56,,,,,,,,,trancom,Otu6946,Unrecognized,Otu34,Unrecognized,,,Otu1329,Unrecognized,Otu1784,Aquicella,,,,,Otu5728,Unrecognized,,,,,,,,,,,
+57,,,,,,,,,trancom,Otu2516,Unrecognized,Otu525,Nordella,,,Otu381,Nocardioides,Otu4012,Chthoniobacter,,,,,Otu60,Ellin6067,,,,,,,,,,,
+58,,,,,,,,,trancom,Otu2323,Unrecognized,Otu1175,Unrecognized,,,Otu388,Unrecognized,Otu157,Terrimonas,,,,,,,,,,,,,,,,,
+59,,,,,,,,,trancom,Otu1004,Unrecognized,Otu5113,Blastocatella,,,Otu7069,Unrecognized,Otu56,Unrecognized,,,,,,,,,,,,,,,,,
+60,,,,,,,,,trancom,Otu4140,Unrecognized,Otu579,Unrecognized,,,Otu3124,Unrecognized,Otu59,Sphingomonas,,,,,,,,,,,,,,,,,
+61,,,,,,,,,trancom,Otu824,Anaeromyxobacter,Otu673,Unrecognized,,,Otu3939,Unrecognized,Otu1205,Unrecognized,,,,,,,,,,,,,,,,,
+62,,,,,,,,,trancom,Otu1791,Unrecognized,,,,,Otu3295,Haliangium,Otu263,Unrecognized,,,,,,,,,,,,,,,,,
+63,,,,,,,,,trancom,Otu686,Unrecognized,,,,,Otu1505,Unrecognized,Otu120,Unrecognized,,,,,,,,,,,,,,,,,
+64,,,,,,,,,trancom,Otu386,Candidatus Solibacter,,,,,Otu2101,Unrecognized,Otu2629,Unrecognized,,,,,,,,,,,,,,,,,
+65,,,,,,,,,trancom,Otu1187,MND1,,,,,Otu2460,Unrecognized,Otu3300,Unrecognized,,,,,,,,,,,,,,,,,
+66,,,,,,,,,trancom,Otu2601,Sphingomonas,,,,,Otu747,Unrecognized,Otu128,Unrecognized,,,,,,,,,,,,,,,,,
+67,,,,,,,,,trancom,Otu563,Unrecognized,,,,,Otu976,Unrecognized,Otu394,Unrecognized,,,,,,,,,,,,,,,,,
+68,,,,,,,,,trancom,Otu1644,Unrecognized,,,,,Otu2948,Unrecognized,Otu6464,Gemmata,,,,,,,,,,,,,,,,,
+69,,,,,,,,,trancom,Otu2759,Unrecognized,,,,,Otu766,Hirschia,Otu1161,Unrecognized,,,,,,,,,,,,,,,,,
+70,,,,,,,,,trancom,Otu55,Rubrobacter,,,,,Otu849,Unrecognized,Otu2831,Unrecognized,,,,,,,,,,,,,,,,,
+71,,,,,,,,,trancom,Otu1285,Unrecognized,,,,,Otu122,Unrecognized,Otu5016,RB41,,,,,,,,,,,,,,,,,
+72,,,,,,,,,trancom,Otu2481,Ammoniphilus,,,,,Otu2201,Unrecognized,Otu1171,Unrecognized,,,,,,,,,,,,,,,,,
+73,,,,,,,,,trancom,Otu3236,Unrecognized,,,,,Otu420,Pedomicrobium,Otu2141,Unrecognized,,,,,,,,,,,,,,,,,
+74,,,,,,,,,trancom,Otu5342,Unrecognized,,,,,Otu2279,Unrecognized,Otu74,Unrecognized,,,,,,,,,,,,,,,,,
+75,,,,,,,,,trancom,Otu1938,Unrecognized,,,,,Otu2367,Unrecognized,,,,,,,,,,,,,,,,,,,
+76,,,,,,,,,trancom,Otu1432,Unrecognized,,,,,Otu401,Gemmatimonas,,,,,,,,,,,,,,,,,,,
+77,,,,,,,,,trancom,Otu4497,Unrecognized,,,,,Otu1524,Unrecognized,,,,,,,,,,,,,,,,,,,
+78,,,,,,,,,trancom,Otu786,Unrecognized,,,,,Otu3678,Jatrophihabitans,,,,,,,,,,,,,,,,,,,
+79,,,,,,,,,trancom,Otu110,Chthoniobacter,,,,,Otu717,Unrecognized,,,,,,,,,,,,,,,,,,,
+80,,,,,,,,,trancom,Otu2064,Unrecognized,,,,,Otu1320,Unrecognized,,,,,,,,,,,,,,,,,,,
+81,,,,,,,,,trancom,Otu72,Pirellula,,,,,Otu2131,Unrecognized,,,,,,,,,,,,,,,,,,,
+82,,,,,,,,,trancom,,,,,,,Otu2173,Unrecognized,,,,,,,,,,,,,,,,,,,
+83,,,,,,,,,trancom,,,,,,,Otu253,Unrecognized,,,,,,,,,,,,,,,,,,,
+84,,,,,,,,,trancom,,,,,,,Otu47,Chthoniobacter,,,,,,,,,,,,,,,,,,,
+85,,,,,,,,,trancom,,,,,,,Otu126,Unrecognized,,,,,,,,,,,,,,,,,,,
+86,,,,,,,,,trancom,,,,,,,Otu199,Rubrobacter,,,,,,,,,,,,,,,,,,,
+87,,,,,,,,,trancom,,,,,,,Otu831,Unrecognized,,,,,,,,,,,,,,,,,,,
