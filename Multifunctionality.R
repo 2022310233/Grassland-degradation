@@ -1,6 +1,7 @@
-setwd("D:\\桌面\\Phd thesis\\Duolun\\Microbial data\\Multifunctionality")
+##############################scale the functions
+##############################
+##############################
 df <- read.csv("Multifunctionality.csv",row.names = 1)
-
 # 0-1标准化函数
 min_max_scale <- function(x) {
   if (length(unique(x)) == 1) {  # 处理常数列
@@ -15,84 +16,138 @@ scaled_data <- as.data.frame(lapply(df, min_max_scale))
 result_df <- cbind(rownames(df), scaled_data)
 # 查看结果
 print(result_df)
-
 write.csv(result_df, "Multifunctionality_scaled.csv")
 
-#####################trade-off
+##############################trade-off (the evenness calculation)
+##############################
+##############################
 library(vegan)
 result_df <- read.csv("Multifunctionality_scaled.csv")
-
 func_data <- result_df[, -1]  # 移除第一列（样本名称）
 rownames(func_data) <- result_df[, 1]  # 设置行名为样本名称
-
 # 2. 计算香农多样性指数
 shannon <- diversity(func_data, index = "shannon")
-
 # 3. 计算物种丰富度（每个样本中非零功能参数的数量）
 richness <- rowSums(func_data > 0)  # 计算每行大于0的个数
-
 # 4. 计算Pielou均匀度指数 (J = H'/ln(S))
 evenness <- shannon / log(richness)
-
-# 6. 创建结果数据框
+# 5. 创建结果数据框
 result_evenness <- data.frame(
   样本 = rownames(func_data),
   香农指数 = shannon,
   丰富度 = richness,
   evenness = evenness
 )
-
-# 7. 查看结果
+# 6. 查看结果
 print(result_evenness)
 
-
-#######################significance
-df <- read.csv("Multifunctionality_results.csv")
-df1 <- df[1:6,]
-df2 <- df[7:12,]
-
-t.test(df1$Multifunctionality_Multi.threshold,df2$Multifunctionality_Multi.threshold)
-t.test(df1$Evenness,df2$Evenness)
-
-lm <- lm(Multifunctionality_Multi.threshold~Evenness,data = df)
-summary(lm)
-
-t.test(df1$productivity,df2$productivity) #+
-t.test(df1$Stability.1,df2$Stability.1) # 
-t.test(df1$Pathogen.control,df2$Pathogen.control) #+
-t.test(df1$carbon.stocks,df2$carbon.stocks) #+
-t.test(df1$maintenance.of.soil.nutrients,df2$maintenance.of.soil.nutrients) #+
-t.test(df1$biological.activity,df2$biological.activity) #+
-t.test(df1$SM,df2$SM) #+
-
-
-################################多阈值法
+##############################Multifunctionality based on Multi-threshold method
+##############################
+##############################
 df <- read.csv("Multifunctionality_scaled.csv")
-
-# 1️⃣ 提取功能数据部分
+# 1. 提取功能数据部分
 function_data <- df[, -1]
-
-# 2️⃣ 设置多个阈值
+# 2. 设置多个阈值
 thresholds <- seq(0.1, 0.9, by = 0.05)
-
-# 3️⃣ 初始化结果列表
+# 3. 初始化结果列表
 multifunc_results <- list()
-
-# 4️⃣ 遍历每一个阈值，计算每个样本达到该阈值的功能个数
+# 4. 遍历每一个阈值，计算每个样本达到该阈值的功能个数
 for (thr in thresholds) {
   # 每个样本有多少功能 >= 当前阈值
   passed_count <- apply(function_data, 1, function(x) sum(x >= thr))
-  
   # 存储结果：行名为样本，列为该阈值下的多功能性得分
   multifunc_results[[paste0("thr_", thr)]] <- passed_count
 }
-
-# 5️⃣ 合并结果为数据框
+# 5. 合并结果为数据框
 multifunc_df <- do.call(cbind, multifunc_results)
 multifunc_df <- data.frame(Sample = df$X, multifunc_df)
-
-# 查看结果
+# 6. 查看结果
 print(multifunc_df)
+
+##############################linear mixed model to test the effect size of grassland degradation on bacterial network
+##############################
+##############################
+library(lme4)
+data <- read.csv("Network_property_LMM.csv",row.names = 1) 
+data[,c(1:14,21:30)] <- scale(data[,c(1:14,21:30)])
+dat <- data
+fm <- lmer(p.n2 ~ SampleType + (1|TimePoint),data=dat)
+presult<-car::Anova(fm,type=2)
+coefs<-coef(summary(fm))[ , "Estimate"]#four coefs
+names(coefs)<-paste0(names(coefs),".mean")
+SEvalues<-coef(summary(fm))[ , "Std. Error"]#standard errors
+names(SEvalues)<-paste0(names(SEvalues),".se")
+# tvalues<-coef(summary(fm))[ , "t value"]#t values
+# names(tvalues)<-paste0(names(tvalues),".t")
+# chisqP<-c(presult[,1],presult[,3])
+# names(chisqP)<-c(paste0(row.names(presult),".chisq"),paste0(row.names(presult),".P"))
+chisqP<-c(presult[,3])
+names(chisqP)<-c(paste0(row.names(presult),".P"))
+# result<-c(coefs,tvalues,SEvalues,chisqP)
+result<-c(coefs,SEvalues,chisqP)
+result
+
+##############################rrn copy number
+##############################
+##############################
+otu_table <- read.csv("otutab_rarefied.csv", row.names = 1)
+otu_table1 <- read.csv("otutab_rarefied.csv")
+copy_number_table <- read.csv("copy number.csv") ###the copy number.csv was generated from ribosomal RNA operons (rrn) DataBase
+# 计算每个OTU在每个样本中的相对丰度
+otu_relative_abundance <- apply(otu_table, 2, function(x) x / sum(x))
+otu_relative_abundance[1:10, 1:20]
+write.csv(otu_relative_abundance,"otutab_rel.csv")
+otu_phylum_copy <- merge(otu_table1, copy_number_table, by = "OTU.ID")
+head(otu_phylum_copy)
+nrow(otu_phylum_copy)
+community_copy_numbers <- list()
+community_copy_numbers1 <- list()
+otu_data <- otu_phylum_copy
+
+sample_results <- list()  
+# 遍历每个样本
+for (sample in colnames(otu_relative_abundance)) {
+    
+    # 提取该样本的相对丰度和copy number
+    Si <- as.numeric(otu_relative_abundance[otu_data$OTU.ID, sample])
+    ni <- as.numeric(otu_data$copy.number)
+    
+    # 计算分子和分母
+    numerator <- sum(Si)
+    denominator <- sum(Si / ni)
+    
+    # 计算community-level copy number
+    community_level_copy_number <- numerator / denominator
+    
+    # 存储该样本的结果
+    sample_results[[sample]] <- community_level_copy_number
+}
+copy_number <- unlist(sample_results)
+copy_number <- as.data.frame(copy_number)
+
+#####test the effect of grassland degradation on rrn copy number
+library(lme4)
+data <- read.csv("Network_property_LMM.csv",row.names = 1) 
+data[,c(1:14,21:30)] <- scale(data[,c(1:14,21:30)])
+dat <- data
+library(lme4)
+fm <- lmer(copy_number ~ SampleType + (1|TimePoint),data=dat)
+presult<-car::Anova(fm,type=2)
+coefs<-coef(summary(fm))[ , "Estimate"]#four coefs
+names(coefs)<-paste0(names(coefs),".mean")
+SEvalues<-coef(summary(fm))[ , "Std. Error"]#standard errors
+names(SEvalues)<-paste0(names(SEvalues),".se")
+# tvalues<-coef(summary(fm))[ , "t value"]#t values
+# names(tvalues)<-paste0(names(tvalues),".t")
+# chisqP<-c(presult[,1],presult[,3])
+# names(chisqP)<-c(paste0(row.names(presult),".chisq"),paste0(row.names(presult),".P"))
+chisqP<-c(presult[,3])
+names(chisqP)<-c(paste0(row.names(presult),".P"))
+# result<-c(coefs,tvalues,SEvalues,chisqP)
+result<-c(coefs,SEvalues,chisqP)
+result
+
+            
 
 #######################################pearson correlation
 setwd("D:\\桌面\\Phd thesis\\Duolun\\Microbial data\\Multifunctionality")
@@ -1856,6 +1911,7 @@ corrplot(cor_matrix,
          tl.col = "black",              # 标签颜色
          tl.srt = 45,                   # 标签旋转角度
          addgrid.col = "black")         # 添加黑色网格线作为边框
+
 
 
 
