@@ -1,4 +1,5 @@
 #################################################scale
+#################################################
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 df <- read.csv("Multifunctionality.csv",row.names = 1)
 
@@ -19,7 +20,8 @@ print(result_df)
 
 write.csv(result_df, "Multifunctionality_scaled.csv")
 
-#####################trade-off
+#################################################trade-off (evenness)
+#################################################
 library(vegan)
 result_df <- read.csv("Multifunctionality_scaled.csv")
 
@@ -45,7 +47,8 @@ result_evenness <- data.frame(
 # 7. 查看结果
 print(result_evenness)
 
-################################多阈值法
+#################################################multi-threshold
+#################################################
 df <- read.csv("Multifunctionality_scaled.csv")
 
 # 1️⃣ 提取功能数据部分
@@ -71,7 +74,8 @@ multifunc_df <- data.frame(Sample = df$X, multifunc_df)
 # 查看结果
 print(multifunc_df)
 
-#########################################LMM_effect size
+#################################################LMM_effect size
+#################################################
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 data <- read.csv("Multifunctionality_results.csv")
 dat <- data
@@ -92,7 +96,8 @@ names(chisqP)<-c(paste0(row.names(presult),".P"))
 result<-c(coefs,SEvalues,chisqP)
 result
 
-#########################################LMM_correlation
+#################################################LMM_correlation
+#################################################
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 data <- read.csv("correlation.csv")
 dat <- data
@@ -115,7 +120,6 @@ result<-c(coefs,SEvalues,chisqP)
 result
 r2 <- performance::r2(fm)
 r2
-
 ####################plot
 library(ggplot2)
 dat$pred_Multi_mean <- predict(fm, re.form = NA)
@@ -127,95 +131,8 @@ ggplot(dat, aes(evenness, Multi_mean)) +
   xlab("Evenness") +
   ylab("Multifunctionality")
 
-
-#########################################LMM_correlation
-setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
-data <- read.csv("correlation.csv")
-dat <- filter(data, SampleType=="1")
-library(lme4)
-library(performance)
-fm <- lmer(evenness ~ evenness + (1|TimePoint)+ (1|Position),data=dat)
-presult<-car::Anova(fm,type=2)
-coefs<-coef(summary(fm))[ , "Estimate"]#four coefs
-names(coefs)<-paste0(names(coefs),".mean")
-SEvalues<-coef(summary(fm))[ , "Std. Error"]#standard errors
-names(SEvalues)<-paste0(names(SEvalues),".se")
-# tvalues<-coef(summary(fm))[ , "t value"]#t values
-# names(tvalues)<-paste0(names(tvalues),".t")
-# chisqP<-c(presult[,1],presult[,3])
-# names(chisqP)<-c(paste0(row.names(presult),".chisq"),paste0(row.names(presult),".P"))
-chisqP<-c(presult[,3])
-names(chisqP)<-c(paste0(row.names(presult),".P"))
-# result<-c(coefs,tvalues,SEvalues,chisqP)
-result<-c(coefs,SEvalues,chisqP)
-result
-r2 <- performance::r2(fm)
-R2values <- c(r2[1], r2[2])
-R2values
-
-#############################random forest
-library(randomForest)
-library(rfPermute)
-data <- read.csv("correlation.csv",row.names = 1)
-data[,38:53] <- scale(data[,38:53] )
-dat1 <- data
-dat <- dat1[,c(39,41:45,53)]
-
-rf <- randomForest(Multi_mean~., data=dat, importance=TRUE, proximity=TRUE)
-print(rf)
-importance(rf)
-
-rf <- rfPermute(Multi_mean~., data=dat, importance=TRUE, proximity=TRUE)
-print(rf)
-importance(rf)
-
-lm <- lm(dat$Multifunctionality_mean~dat$Positive.links)
-summary(lm)
-
-####################################100次random forest
-set.seed(123)
-# 初始化空列表以保存结果
-mse_list <- list()
-pval_list <- list()
-
-# 循环运行100次模型
-for (i in 1:50) {
-  rf <- rfPermute(Multi_mean ~ ., data = dat, importance = TRUE, proximity = TRUE)
-  imp <- importance(rf)
-  mse_list[[i]] <- imp[, "%IncMSE"]
-  pval_list[[i]] <- imp[, "%IncMSE.pval"]
-}
-
-# 将列表转换为数据框矩阵并计算平均值
-mse_matrix <- do.call(cbind, mse_list)
-pval_matrix <- do.call(cbind, pval_list)
-
-mse_mean <- rowMeans(mse_matrix, na.rm = TRUE)
-pval_mean <- rowMeans(pval_matrix, na.rm = TRUE)
-
-# 组合结果为数据框
-result <- data.frame(
-  Mean_IncMSE = mse_mean,
-  Mean_IncMSE_pval = pval_mean
-)
-# 输出结果
-print(result)
-
-
-# 初始化一个向量用于存储每次模型的 % Var explained
-var_explained <- numeric(100)
-# 运行 100 次 randomForest 模型
-for (i in 1:100) {
-  rf <- randomForest(Multifunctionality_mean ~ ., data = dat,
-                     importance = TRUE, proximity = TRUE)
-  var_explained[i] <- tail(rf$rsq, 1) * 100  # 转换为百分比
-}
-
-# 输出平均值
-mean_var_explained <- mean(var_explained)
-print(mean_var_explained)
-
-#############################beta diversity
+#################################################beta diversity
+#################################################
 ##################################jaccard
 setwd("/Users/zhenchengye/Desktop/Phd thesis/Duolun/Microbial data/02_scaling pattern/STAR")
 # 读取数据
@@ -278,10 +195,9 @@ for (time_group in timepoints) {
 results_df
 write.csv(results_df,"/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new/beta_jaccard_res.csv")
 
-
-
-#####################################################################plot for manuscript
-############################################Fig.1
+#################################################plot for manuscript
+#################################################
+#################################################Fig.1
 ###Fig. 1_effect size for each functional indicator
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 data <- read.csv("Multifunctionality_results.csv")
@@ -336,7 +252,7 @@ final_result
 # 可选：导出结果
 write.csv(final_result, "results_LMM_functional indicators.csv", row.names = FALSE)
 
-#################################Fig. 1_effect size plot_按照不同的分组设置颜色
+#################################################Fig. 1_effect size plot_按照不同的分组设置颜色
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(ggplot2)
 # 读入数据
@@ -418,7 +334,7 @@ p <- ggplot(cohen_d_df,
 p
 ggsave("Fig1_effect size_functional indicators.tiff", p, dpi = 300, width = 7, height = 7)
 
-#################################Fig. 1_barplot_evenness、multifunctionality
+#################################################Fig. 1_barplot_evenness, multifunctionality
 ###Fig. 1_evenness
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 data <- read.csv("Multifunctionality_results.csv",row.names = 1)  # 请替换为你的文件路径
@@ -477,7 +393,7 @@ p <- ggplot(data_19, aes(x = SampleType1, y = evenness, fill = SampleType1)) +
 p
 ggsave("Fig1_evenness_box.png", p, dpi = 300, width = 2, height = 2.5)
 
-###Fig. 1_multifunctionality_mean
+#################################################Fig. 1_multifunctionality_mean
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 载入必要的包
 library(ggplot2)
@@ -538,7 +454,7 @@ p <- ggplot(summary_stats, aes(x = SampleType1, y = mean_value, fill = SampleTyp
 p
 ggsave("Fig1_multi_averaging.png", p, dpi = 300, width = 2, height = 2)
 
-###Fig. 1_linear between evenness and multifunctionality_mean
+#################################################Fig. 1_linear between evenness and multifunctionality_mean
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(ggplot2)
 library(lme4)
@@ -625,7 +541,7 @@ p <- ggplot(dat, aes(evenness, pred_Multi_mean)) +
 p
 ggsave("Fig1_correlation1.png", p, dpi = 300, width = 2.5, height = 2.5)
 
-########################Fig. 1_multifunctionality_thres
+#################################################Fig. 1_multifunctionality_multi-threshold
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 载入必要的包
 library(ggplot2)
@@ -686,7 +602,7 @@ p <- ggplot(summary_stats, aes(x = SampleType1, y = mean_value, fill = SampleTyp
 p
 ggsave("Fig1_multi_thres.tiff", p, dpi = 300, width = 2, height = 2)
 
-###################Fig. 1_linear between evenness and multifunctionality_thres
+#################################################Fig. 1_linear between evenness and multifunctionality_multi-threshold
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(ggplot2)
 library(lme4)
@@ -794,8 +710,8 @@ result
 r2 <- performance::r2(fm)
 r2
 
-####################################################Fig.3
-###Fig.3_NMDS
+#################################################Fig.3
+#################################################Fig.3_NMDS
 setwd("/Users/zhenchengye/Desktop/Phd thesis/Duolun/Microbial data/03_composition_diversity/beta")
 library(vegan)
 library(ggplot2)
@@ -803,7 +719,7 @@ library(RColorBrewer)
 library(ggsci)
 
 sp <- read.csv("otutab_NMDS.csv",row.names = 1)
-sp.nmds <- metaMDS(sp[,-1],distance = "bray",k=2)
+sp.nmds <- metaMDS(sp[,-1],distance = "jaccard",k=2)
 sp.nmds$points
 nmds_sp_site <- data.frame(sp$SampleType,sp.nmds$points)
 colnames(nmds_sp_site) <- c("SampleType","NMDS1","NMDS2")
@@ -827,7 +743,7 @@ p # 一般要求NMDS的stress<0.2
 #pairwise.anosim(sp[,-ncol(sp)], sp$Site, sim.method="bray", p.adjust.m= "fdr") #两两比较
 ggsave("D:\\桌面\\Phd thesis\\Duolun\\Microbial data\\Multifunctionality\\Fig5_NMDS.png", p, dpi = 300,width = 4,height = 3)
 
-###Fig.3_alpha diversity
+#################################################Fig.3_alpha diversity
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 载入必要的包
 library(ggplot2)
@@ -887,7 +803,7 @@ p
 ggsave("Fig2_Richness.tiff", p, dpi = 300, width = 2.5, height = 2)
 
 
-######################Fig.2_beta diversity
+#################################################Fig.2_beta diversity
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 载入必要的包
 library(ggplot2)
@@ -947,9 +863,8 @@ p
 ggsave("Fig2_distance.tiff", p, dpi = 300, width = 2.5, height = 2)
 
 
-############################################Fig.4
-###Fig.4_network
-######################################network plot
+#################################################Fig.4
+#################################################Fig.4_network
 setwd("/Users/zhenchengye/Desktop/Phd thesis/Duolun/Microbial data/03_network/Bare")
 dat <- read.csv("bareT0 Pearson Correlation.csv", header = TRUE, row.names = 1)
 dat <- as.matrix(dat)
@@ -1007,8 +922,8 @@ sub_net_layout <- layout_with_kk(g1)
 plot(g1,layout=sub_net_layout, edge.color = E(g1)$color,vertex.size=3)
 title(main = paste0('Nodes=',length(V(g1)$name),', ','Edges=',nrow(data.frame(as_edgelist(g1)))))
 
-###########################Fig.4_effect size_network property
-######################LMM
+#################################################Fig.4_effect size_network property
+#################################################LMM
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 data <- read.csv("Network_property_LMM.csv",row.names = 1) 
 data[,8:ncol(data)] <- scale(data[,8:ncol(data)])
@@ -1063,7 +978,7 @@ final_result
 # 输出结果
 write.csv(final_result, "results_Network_LMM.csv")
 
-##########################plot
+#################################################plot
 library(ggplot2)
 #plot
 # 将Cohen's d值及其置信区间转换为数据框
@@ -1103,7 +1018,7 @@ p <- ggplot(cohen_d_df, aes(x = SampleType.mean, y = Column, fill = Color)) +
 p
 ggsave("Fig3_effect size_network.tiff", p, dpi = 300, width = 6, height = 3)
 
-##########################Fig. 3_motifs plot
+#################################################Fig. 3_motifs plot
 # 载入必要的包
 library(ggplot2)
 library(dplyr)
@@ -1164,7 +1079,7 @@ p <- ggplot(summary_stats, aes(x = SampleType1, y = mean_value, fill = SampleTyp
 p
 ggsave("Fig3_trancom_Proportion.tiff", p, dpi = 300, width = 1.5, height = 1.9)
 
-############################Fig. 3_correlation between motifs and soil nutrients
+#################################################Fig. 3_correlation between motifs and soil nutrients
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 读取CSV文件
 data <- read.csv("correlation.csv",row.names = 1)
@@ -1253,7 +1168,7 @@ p
 ggsave("Fig3_correlation with TN.tiff", p, dpi = 300, width = 2.5, height = 2.5)
 
 
-#####################Fig. 3_assambly
+#################################################Fig. 3_assambly
 # 载入必要的包
 library(ggplot2)
 library(dplyr)
@@ -1359,8 +1274,8 @@ p <- ggplot(data_long, aes(x = Treat, y = Value, fill = Process)) +
 p
 ggsave("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new/Fig3_assembly.tiff", p, dpi = 300, width = 2.4, height = 2)
 
-#########################################################Fig.4
-###Fig.4_pearson correlation_evenness
+#################################################Fig.4
+#################################################Fig.4_pearson correlation_evenness
 # 加载所需的包
 # 提取数据
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
@@ -1416,7 +1331,7 @@ p <- qcorrplot(correlate(network_data), type = "lower", diag = FALSE) +
 p
 ggsave("Fig4_correlation.tiff", p, dpi = 300, width = 5, height = 5)
 
-###Fig.4_pearson correlation_multi_mean
+#################################################Fig.4_pearson correlation_multi_mean
 # 加载所需的包
 # 提取数据
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
@@ -1474,42 +1389,8 @@ ggsave("Fig4_correlation_multi.tiff", p, dpi = 300, width = 5, height = 5)
 
 
 
-####################################Fig.4_多元回归
-#############################多元回归_分开_evenness
-data <- read.csv("correlation.csv",row.names = 1)
-dat <- filter(data, SampleType=="1")
-dat[,38:53] <- scale(dat[,38:53] )
-
-# 模型
-lm <- lm(Multi_mean~Richness+avgK+Total.nodes+Total.links+Density+Distance,data=dat)
-summary(lm)
-lms <- step(lm,direction = "both")
-summary(lms)
-aov <- anova(lms)
-aovss <- aov$`Sum Sq`
-result <- cbind(aov,exp=aovss/sum(aovss)*100)
-result
-
-data <- read.csv("correlation.csv",row.names = 1)
-dat <- filter(data, SampleType=="1")
-dat[,38:53] <- scale(dat[,38:53] )
-fm <- lmer(Multi_mean ~ Distance + (1|TimePoint)+ (1|Position),data=dat)
-presult<-car::Anova(fm,type=2)
-coefs<-coef(summary(fm))[ , "Estimate"]#four coefs
-names(coefs)<-paste0(names(coefs),".mean")
-SEvalues<-coef(summary(fm))[ , "Std. Error"]#standard errors
-names(SEvalues)<-paste0(names(SEvalues),".se")
-# tvalues<-coef(summary(fm))[ , "t value"]#t values
-# names(tvalues)<-paste0(names(tvalues),".t")
-# chisqP<-c(presult[,1],presult[,3])
-# names(chisqP)<-c(paste0(row.names(presult),".chisq"),paste0(row.names(presult),".P"))
-chisqP<-c(presult[,3])
-names(chisqP)<-c(paste0(row.names(presult),".P"))
-# result<-c(coefs,tvalues,SEvalues,chisqP)
-result<-c(coefs,SEvalues,chisqP)
-result
-
-#############################多元回归_合起来_evenness
+#################################################Fig.4_multiple regression
+#################################################evenness
 data <- read.csv("correlation.csv",row.names = 1)
 data[,38:53] <- scale(data[,38:53] )
 
@@ -1523,7 +1404,7 @@ aovss <- aov$`Sum Sq`
 result <- cbind(aov,exp=aovss/sum(aovss)*100)
 result
 
-#############################plot
+#################################################plot
 result$Column <- rownames(result)
 
 cohen_d_df <- result[1:2,]
@@ -1558,7 +1439,7 @@ p <- ggplot(cohen_d_df, aes(x = Column, y = exp, fill = Color)) +
 p
 ggsave("Fig4_step regression_evenness.tiff", p, dpi = 300, width = 2, height =3)
 
-########################################Fig4_evenness与n.p之间关联
+#################################################Fig4_correlation between evenness and n.p
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 读取CSV文件
 data <- read.csv("correlation.csv",row.names = 1)
@@ -1647,7 +1528,7 @@ p <- ggplot(dat, aes(n.p, pred_Multi_mean)) +
 p
 ggsave("Fig4_evenness and np.tiff", p, dpi = 300, width = 2.5, height = 2.5)
 
-########################################Fig4_与trancom之间关联
+#################################################Fig4_correlation between evenness and trancom之间关联
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 读取CSV文件
 data <- read.csv("correlation.csv",row.names = 1)
@@ -1671,7 +1552,7 @@ result<-c(coefs,SEvalues,chisqP)
 result
 r2 <- performance::r2(fm)
 r2
-#########plot
+#################################################plot
 # 预测值
 dat$pred_Multi_mean <- predict(fm, re.form = NA)
 
@@ -1736,8 +1617,8 @@ p
 ggsave("Fig4_evenness and trancom.tiff", p, dpi = 300, width = 2.5, height = 2.5)
 
 
-####################################Fig.4_多元回归
-#############################多元回归_合起来_multi_mean
+#################################################Fig.4_多元回归
+#################################################multi_mean
 data <- read.csv("correlation.csv",row.names = 1)
 data[,38:53] <- scale(data[,38:53] )
 
@@ -1751,7 +1632,7 @@ aovss <- aov$`Sum Sq`
 result <- cbind(aov,exp=aovss/sum(aovss)*100)
 result
 
-#############################plot
+#################################################plot
 result$Column <- rownames(result)
 
 cohen_d_df <- result[1:3,]
@@ -1786,7 +1667,7 @@ p <- ggplot(cohen_d_df, aes(x = Column, y = exp, fill = Color)) +
 p
 ggsave("Fig4_step regression_multi.tiff", p, dpi = 300, width = 2, height =3)
 
-########################################Fig4_multi与n.p之间关联
+#################################################Fig4_correlation between multi and n.p
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 读取CSV文件
 data <- read.csv("correlation.csv",row.names = 1)
@@ -1875,7 +1756,7 @@ p <- ggplot(dat, aes(n.p, pred_Multi_mean)) +
 p
 ggsave("Fig4_Multi_mean and np.tiff", p, dpi = 300, width = 2.5, height = 2.5)
 
-########################################Fig4_与trancom之间关联
+#################################################Fig4_correlation between multi and trancom
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 # 读取CSV文件
 data <- read.csv("correlation.csv",row.names = 1)
@@ -1964,8 +1845,8 @@ p
 ggsave("Fig4_Multi_mean and trancom.tiff", p, dpi = 300, width = 2.5, height = 2.5)
 
 
-###########################################Fig.4_SEM
-###############################SEM_evenness
+#################################################Fig.4_SEM
+#################################################SEM_evenness
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(lavaan)
 library(haven)
@@ -1992,8 +1873,7 @@ fit1 <- sem(model3,data = mydata)
 modificationIndices(fit1, standardized=F)
 summary(fit1,standardized =TRUE,fit.measures =TRUE,rsquare = T)
 
-###############################SEM_Multi_mean
-############all treatments
+#################################################SEM_Multi_mean
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(lavaan)
 library(haven)
@@ -2022,8 +1902,8 @@ modificationIndices(fit1, standardized=F)
 summary(fit1,standardized =TRUE,fit.measures =TRUE,rsquare = T)
 
 
-#####################################Uncertainty analysis
-##########################multi_mean_effect size
+#################################################Uncertainty analysis
+#################################################multi_mean_effect size
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(vegan)
 library(lme4)
@@ -2133,7 +2013,7 @@ write.csv(
   row.names = FALSE
 )
 
-##########################evenness_effect size
+#################################################evenness_effect size
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(vegan)
 library(lme4)
@@ -2250,10 +2130,7 @@ write.csv(
   row.names = FALSE
 )
 
-
-
-
-############################Multi_mean + 多元回归 + 逐步回归
+#################################################Multi_mean_multiple regression
 library(vegan)
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 ## 1. 读入数据 --------------------------------------------------------------
@@ -2441,7 +2318,7 @@ write.csv(res_step,
           "results_Uncertainty_multimean.csv",
           row.names = FALSE)
 
-############################evenness + 多元回归 + 逐步回归
+#################################################evenness_multiple regression
 library(vegan)
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 ## 1. 读入数据 --------------------------------------------------------------
@@ -2637,7 +2514,7 @@ write.csv(res_step,
           "results_Uncertainty_evenness.csv",
           row.names = FALSE)
 
-###############################Fig.S1
+#################################################Fig.S1
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(Hmisc)
 library(ggcorrplot)
@@ -2766,7 +2643,7 @@ p <- ggplot(dat, aes(NO3, pred_Multi_mean)) +
 p
 ggsave("FigS_correlation with NO3.tiff", p, dpi = 300, width = 2.5, height = 2.5)
 
-#####################FigS1
+#################################################FigS1
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 library(tidyverse)
 # 读取CSV文件
@@ -2837,7 +2714,7 @@ p <- ggplot(data_sum, aes(x = Indicator, y = mean, fill = SampleType1)) +
   )
 p
 
-##########################FigS_CNP cycling
+#################################################FigS_CNP cycling
 ###Fig. 1_effect size for CNP cycling
 setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctionality/all treat_new")
 data <- read.csv("CNP cycling.csv")
