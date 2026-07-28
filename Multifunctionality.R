@@ -80,7 +80,7 @@ setwd("/Users/zhenchengye/Desktop/博士期间项目/多伦数据/Multifunctiona
 data <- read.csv("Multifunctionality_results.csv")
 dat <- data
 library(lme4)
-fm <- lmer(Multi_thres ~ SampleType + (1|TimePoint)+ (1|Position),data=dat)
+fm <- lmer(Multi_thres ~ SampleType + (1|TimePoint)+ (1|Position)+(1|PlotID),data=dat)
 presult<-car::Anova(fm,type=2)
 coefs<-coef(summary(fm))[ , "Estimate"]#four coefs
 names(coefs)<-paste0(names(coefs),".mean")
